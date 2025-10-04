@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import * as React from "react"
 import Link from "next/link"
+import axiosClientAuth from "@/Services/api"
 
 const services = [
   {
@@ -32,7 +33,20 @@ const services = [
 
 const Services = () => {
   const [hovered, setHovered] = React.useState(null)
+  const [services, setServices] = React.useState([])
+  React.useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await axiosClientAuth.get("/services");
+        console.log(res.data.data);
+        setServices(res?.data?.data);
+      } catch (err) {
+        console.log("Error fetching services:", err);
+      }
+    };
 
+    fetchServices();
+  }, []);
   return (
     <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
       <div className="grid items-stretch gap-8 md:grid-cols-[1.05fr_1.2fr]">
@@ -82,7 +96,7 @@ const Services = () => {
                   {/* Divider line above except the first */}
                   {i > 0 && <div className="absolute -top-px left-0 right-0 h-px bg-brand-foreground/30" />}
 
-                  <Link href='/services/service-details' 
+                  <Link href={`/services/${s._id}`}
                     className={cn(
                       "group flex w-full items-center justify-between py-6 text-left relative",
                       "transition-colors hover:text-brand-foreground/90 focus:outline-none"
@@ -106,7 +120,7 @@ const Services = () => {
                       <div className="absolute -top-2 right-16 hidden -rotate-[10deg] md:block">
                         <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10">
                           <Image
-                            src={s.image}
+                            src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${s.images[0]}`}
                             alt={s.alt}
                             width={200}
                             height={140}

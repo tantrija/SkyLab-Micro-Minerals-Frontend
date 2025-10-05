@@ -7,32 +7,48 @@ import axiosClientAuth from "@/Services/api"
 import * as React from "react"
 import { ArrowRight } from "lucide-react"
 import FAQ from "@/components/landing/faq"
+import { useParams } from "next/navigation"
+import Link from "next/link"
 
- 
+
 const ServiceDetailPage = ({ className }) => {
   const [service, setServices] = React.useState({})
-  
+  const [rservice, setRservices] = React.useState([])
+  const { slug } = useParams();
+  console.log(slug);
+
   const [activeTab, setActiveTab] = React.useState("overview")
 
 
   React.useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axiosClientAuth.get("/services");
-        console.log(res.data.data);
-        setServices(res?.data?.data[0]);
+        const res = await axiosClientAuth.get(`/services/${slug}`);
+        setServices(res?.data?.data);
       } catch (err) {
         console.log("Error fetching services:", err);
       }
     };
 
     fetchServices();
+    const fetchRServices = async () => {
+      try {
+        const res = await axiosClientAuth.get(`/services`);
+        console.log(res.data.data);
+
+        setRservices(res?.data?.data);
+      } catch (err) {
+        console.log("Error fetching services:", err);
+      }
+    };
+
+    fetchRServices();
   }, []);
-  
 
 
 
-  
+
+
 
   // Related services
   const relatedServices = [
@@ -98,7 +114,7 @@ const ServiceDetailPage = ({ className }) => {
           {/* Left: Headline & Copy */}
           <div>
             <h2 className="text-balance font-sans text-4xl font-bold leading-tight md:text-6xl">
-              {service?.title && "Built for Industrial"} 
+              {service?.title && "Built for Industrial"}
             </h2>
 
             <div className="mt-6 space-y-5 text-base text-gray-600 leading-relaxed">
@@ -111,8 +127,8 @@ const ServiceDetailPage = ({ className }) => {
                 "Built for Industrial"
               )}
             </div>
-          </div> 
-          
+          </div>
+
           {/* Right: Main Image with Circular Badge */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-[28px]">
@@ -156,19 +172,19 @@ const ServiceDetailPage = ({ className }) => {
 
           <div className="grid lg:grid-cols-2 gap-20">
             <div>
-             <div className="space-y-8 fade-in-up">
-                  <h2 className="text-headline-serif mb-6 text-3xl font-semibold">
-                     {service?.title && "Built for Industrial"}
-                  </h2>
-                  {service?.description ? (
-                <div
-                  dangerouslySetInnerHTML={{ __html: service?.description }}
-                  className="text-base leading-relaxed"
-                />
-              ) : (
-                "Built for Industrial"
-              )}
-                </div>
+              <div className="space-y-8 fade-in-up">
+                <h2 className="text-headline-serif mb-6 text-3xl font-semibold">
+                  {service?.title && "Built for Industrial"}
+                </h2>
+                {service?.description ? (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: service?.description }}
+                    className="text-base leading-relaxed"
+                  />
+                ) : (
+                  "Built for Industrial"
+                )}
+              </div>
             </div>
 
             <div className="space-y-6">
@@ -201,7 +217,7 @@ const ServiceDetailPage = ({ className }) => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {relatedServices.map((service, index) => (
+            {rservice?.map((service, index) => (
               <div
                 key={service.id}
                 className="group elegant-hover fade-in-up"
@@ -209,22 +225,18 @@ const ServiceDetailPage = ({ className }) => {
               >
                 <div className="bg-card rounded-lg overflow-hidden">
                   <img
-                    src={service.image || "/placeholder.svg"}
+                    src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${service.images[0]}`}
                     alt={service.title}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="p-8">
                     <h3 className="text-xl font-medium mb-4">{service.title}</h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-light">
-                        ${service.price}
-                        <span className="text-sm text-muted-foreground">/kg</span>
-                      </span>
-                      <button className="flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+
+                      <Link href={`/services/${service._id}`} className="flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors">
                         Learn More
                         <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -236,8 +248,8 @@ const ServiceDetailPage = ({ className }) => {
 
       {/* FAQ Section */}
       <section className="pb-32 px-6">
-        <div className="max-w-7xl mx-auto"> 
-          <FAQ/>
+        <div className="max-w-7xl mx-auto">
+          <FAQ />
         </div>
       </section>
 

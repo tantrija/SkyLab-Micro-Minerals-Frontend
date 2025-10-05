@@ -6,6 +6,9 @@ import { CircularBadge } from "@/components/landing/circular-badge";
 import Image from "next/image";
 import industrialWorker from "../../../public/images/beijing-china-june-modern.webp";
 import axiosClientAuth from "@/Services/api";
+import { useEffect, useState } from "react";
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import Link from "next/link";
 
 const SocialIcon = ({ children, label }) => {
   return (
@@ -43,6 +46,27 @@ const ContactPage = () => {
       resetForm();
     },
   });
+
+
+    const [siteSetting, setSiteSetting] = useState({});
+  
+    useEffect(() => {
+      const fetchSiteSetting = async () => {
+        try {
+          const res = await axiosClientAuth.get("/site-setting");
+          console.log(res.data.data);
+
+          setSiteSetting(res?.data?.data || {});
+        } catch (err) {
+          console.error("Error fetching site Setting data:", err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchSiteSetting();
+    }, []);
+  
+  
 
   return (
     <div className="min-h-screen">
@@ -106,46 +130,42 @@ const ContactPage = () => {
               <div>
                 <p className="text-blue-200 text-sm md:text-base">Address</p>
                 <p className="mt-2 text-2xl md:text-4xl font-semibold leading-tight">
-                  KLLG st, No.99, PKU City, ID 28289
+                  {siteSetting?.address}
                 </p>
               </div>
 
               <div>
                 <p className="text-blue-200 text-sm md:text-base">E-mail</p>
                 <p className="mt-2 text-2xl md:text-4xl font-semibold leading-tight">
-                  hello@domainsite.com
+                  {siteSetting?.email}
                 </p>
               </div>
 
               <div>
                 <p className="text-blue-200 text-sm md:text-base">Phone Number</p>
                 <p className="mt-2 text-2xl md:text-4xl font-semibold leading-tight">
-                  0761-8523-398
+                  {siteSetting?.phone}
                 </p>
               </div>
-
-              <div>
-                <p className="text-blue-200 text-sm md:text-base">Open Hours</p>
-                <p className="mt-2 text-2xl md:text-4xl font-semibold leading-tight">
-                  Monday - Friday
-                  <br />
-                  9.00 am - 5.00 pm
-                </p>
-              </div>
+ 
             </div>
 
             {/* Social icons */}
-            <div className="mt-10 flex items-center gap-4">
-              <SocialIcon label="Facebook">
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="h-5 w-5 fill-white"
-                >
-                  <path d="M22 12.06C22 6.49 17.52 2 12 2S2 6.49 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.97h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z" />
-                </svg>
-              </SocialIcon>
-              {/* Add other social icons as needed */}
+            <div className="mt-10 ">
+               <div className="flex space-x-4 mt-4">
+              <Link href={siteSetting?.facebook || "#"} className="text-gray-300 hover:text-white transition-colors">
+                <Facebook className="w-5 h-5" />
+              </Link>
+              <Link href={siteSetting?.youtube || "#"} className="text-gray-300 hover:text-white transition-colors">
+                <Youtube className="w-5 h-5" />
+              </Link>
+              <Link href={siteSetting?.twitter || "#"} className="text-gray-300 hover:text-white transition-colors">
+                <Twitter className="w-5 h-5" />
+              </Link>
+              <Link href={siteSetting?.instagram || "#"} className="text-gray-300 hover:text-white transition-colors">
+                <Instagram className="w-5 h-5" />
+              </Link>
+            </div>
             </div>
           </aside>
 

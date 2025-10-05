@@ -5,7 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import industrialWorker from "../../../public/images/beijing-china-june-modern.webp";
 import { CircularBadge } from "@/components/landing/circular-badge";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 const GalleryPage = () => {
   const [modalIndex, setModalIndex] = useState(null);
@@ -22,7 +22,7 @@ const GalleryPage = () => {
 
         if (!API_URL || !API_TOKEN) throw new Error("API variables missing");
 
-        const response = await axios.get(`${API_URL}/skylab/gallery`, {
+        const response = await axios.get(`${API_URL}/gallery`, {
           headers: {
             Authorization: `Bearer ${API_TOKEN}`,
             "Content-Type": "application/json",
@@ -158,7 +158,7 @@ const GalleryPage = () => {
               className="absolute right-4 text-white text-4xl w-12 h-12 flex items-center justify-center rounded-full bg-black/50"
               onClick={handleNext}
             >
-              ›
+              <ArrowRight/>
             </button>
 
             {/* Close */}

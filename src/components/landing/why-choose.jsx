@@ -102,10 +102,11 @@ const WhyChooseSection = () => {
           <div className="relative overflow-hidden rounded-[2rem] bg-muted">
             {whyChooseUs?.image ? (
               <Image
-                src={`${process.env.NEXT_PUBLIC_API_IMAGE}${whyChooseUs.image}`}
-                alt={whyChooseUs.heading || "Why Choose Us Image"}
-                fill
-                className="object-cover"
+                src={`${process.env.NEXT_PUBLIC_API_IMAGE}${whyChooseUs?.image}`}
+                alt={whyChooseUs?.heading || "Why Choose Us Image"}
+                width={540}
+                height={600}
+                className="object-cover min-h-[450px] w-full"
                 priority
               />
             ) : (

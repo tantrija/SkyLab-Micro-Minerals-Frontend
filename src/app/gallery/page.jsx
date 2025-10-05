@@ -5,7 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import industrialWorker from "../../../public/images/beijing-china-june-modern.webp";
 import { CircularBadge } from "@/components/landing/circular-badge";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
 const GalleryPage = () => {
   const [modalIndex, setModalIndex] = useState(null);
@@ -143,7 +143,7 @@ const GalleryPage = () => {
               className="absolute left-4 text-white text-4xl w-12 h-12 flex items-center justify-center rounded-full bg-black/50"
               onClick={handlePrev}
             >
-              ‹
+              <ArrowLeft/>
             </button>
 
             {/* Image */}
@@ -163,7 +163,7 @@ const GalleryPage = () => {
 
             {/* Close */}
             <button
-              className="absolute top-4 right-4 bg-black/50 w-12 h-12 flex items-center justify-center rounded-full text-white text-3xl"
+              className="absolute top-2 right-6 bg-black/50 w-12 h-12 flex items-center justify-center rounded-full text-white text-3xl"
               onClick={() => setModalIndex(null)}
             >
               <X />

@@ -62,7 +62,7 @@ const Team = () => {
 
           return (
             <div
-              key={m.name}
+              key={i}
               className={cn(
                 "relative h-[420px] overflow-hidden rounded-[28px]",
                 "ring-1 ring-black/10 transition-all duration-300",
@@ -121,7 +121,7 @@ const Team = () => {
                 <div className="relative h-full">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${m.images[0]}`}
-                    alt={m.alt}
+                    alt={m.title}
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"

@@ -8,6 +8,7 @@ import Image from "next/image"
 
 const Footer = () => {
     const [siteSetting, setSiteSetting] = useState({});
+    const [loading, setLoading ] =useState()
 
     useEffect(() => {
       const fetchSiteSetting = async () => {

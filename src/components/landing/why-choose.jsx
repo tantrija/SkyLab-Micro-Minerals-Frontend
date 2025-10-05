@@ -21,51 +21,7 @@ const WhyChooseSection = () => {
     fetchWhyChoose();
   }, []);
 
-  const features = [
-    {
-      title: "Precision-Driven Manufacturing",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M12 2a1 1 0 0 1 1 1v1.06A8.004 8.004 0 0 1 19.94 11H21a1 1 0 1 1 0 2h-1.06A8.004 8.004 0 0 1 13 19.94V21a1 1 0 1 1-2 0v-1.06A8.004 8.004 0 0 1 4.06 13H3a1 1 0 1 1 0-2h1.06A8.004 8.004 0 0 1 11 4.06V3a1 1 0 0 1 1-1Zm0 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7Zm0 2a3 3 0 1 1 0 6a3 3 0 0 1 0-6Z"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Advanced Technology Equipment",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M7 7h10v10H7z" />
-          <path
-            fill="currentColor"
-            d="M4 10h2v4H4zm14 0h2v4h-2zM10 4h4v2h-4zm0 14h4v2h-4zM6 2h2v3H6zm10 0h2v3h-2zM6 19h2v3H6zm10 0h2v3h-2z"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Scalable Solutions for Any Industry",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M3 20h18v2H3zM6 10h3v8H6zm5-4h3v12h-3zm5 6h3v6h-3z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Reliable Delivery & Quality Control",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M9 2h6a2 2 0 0 1 2 2h2a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h2a2 2 0 0 1 2-2Zm0 2v2h6V4H9Zm2 6h6v2h-6zm0 4h6v2h-6zm-4-4h2v2H7zm0 4h2v2H7z"
-          />
-        </svg>
-      ),
-    },
-  ]
-
+ 
   return (
     <section aria-labelledby="why-choose" className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-4">

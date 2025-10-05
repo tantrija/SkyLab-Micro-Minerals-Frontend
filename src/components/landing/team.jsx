@@ -1,91 +1,72 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import React, { useState } from "react"
-import { ArrowUpRight, Facebook, Instagram, Linkedin } from "lucide-react"
-import { cn } from "@/lib/utils"
-
-// ✅ Import real images
-import industrialWorker from "../../../public/images/beijing-china-june-modern.webp"
-import industrialWorker1 from "../../../public/images/beijing-china-june-modern.webp"
-import industrialWorker2 from "../../../public/images/beijing-china-june-modern.webp"
-import industrialWorker3 from "../../../public/images/beijing-china-june-modern.webp"
-
-const members = [
-  {
-    name: "Sophia Liem",
-    role: "Lead Manufacturing Engineer",
-    image: industrialWorker,
-    alt: "Portrait of Sophia Liem in a factory",
-    bio: "Drives engineering excellence with a focus on safety, throughput, and continuous improvement.",
-    socials: { linkedin: "#" },
-  },
-  {
-    name: "John Maxwell",
-    role: "Production Manager",
-    image: industrialWorker1,
-    alt: "Portrait of John Maxwell in a production facility",
-    bio: "Manages the entire production floor, coordinating timelines, and quality control.",
-    socials: { facebook: "#", linkedin: "#", instagram: "#" },
-  },
-  {
-    name: "Alex Tan",
-    role: "Senior CNC Specialist",
-    image: industrialWorker2,
-    alt: "Portrait of Alex Tan operating CNC machinery",
-    bio: "Specialist in precision machining with expertise in multi-axis tooling and tolerances.",
-    socials: { linkedin: "#" },
-  },
-  {
-    name: "David Kim",
-    role: "Supply Chain Coordinator",
-    image: industrialWorker3,
-    alt: "Portrait of David Kim in a warehouse",
-    bio: "Optimizes inbound materials and outbound logistics to ensure on-time delivery.",
-    socials: { linkedin: "#" },
-  },
-]
+import Image from "next/image";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { cn } from "@/lib/utils";
+import axiosClientAuth from "@/Services/api"
+import * as React from "react"
 
 const Team = () => {
-  const [hovered, setHovered] = useState(null)
-  const activeIndex = hovered // ✅ sirf hover par hi active hoga
+  const [members, setMembers] = React.useState([]);
+  const [hovered, setHovered] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  const activeIndex = hovered;
+
+  React.useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const res = await axiosClientAuth.get("/our-team");
+        console.log(res.data.data.data);
+        setMembers(res?.data?.data?.data);
+        setLoading(false);
+      } catch (err) {
+        console.log("Error fetching services:", err);
+      }
+    };
+
+    fetchTeam();
+  }, []);
+
+
+  if (loading)
+    return (
+      <section className="py-20 text-center text-gray-500">Loading team members...</section>
+    );
+
+  if (error)
+    return (
+      <section className="py-20 text-center text-red-500">Error: {error}</section>
+    );
 
   return (
     <section className="mx-auto w-full max-w-7xl px-6 pb-16 pt-6 md:pb-24 md:pt-12">
       {/* Header */}
       <div className="mb-8 flex items-start justify-between md:mb-10">
         <div>
-          <p className="text-sm font-semibold tracking-widest/relaxed text-foreground/60">03 / OUR TEAM</p>
+          <p className="text-sm font-semibold tracking-widest/relaxed text-foreground/60">
+            03 / OUR TEAM
+          </p>
           <h2 className="text-pretty font-sans text-4xl font-semibold leading-tight md:text-6xl">
             Your Manufacturing <br className="hidden md:block" />
             Partners
           </h2>
         </div>
-
-        <a
-          href="#"
-          className={cn(
-            "mt-3 inline-flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold",
-            "bg-brand text-brand-foreground ring-1 ring-black/5 transition-colors hover:opacity-95 md:mt-0"
-          )}
-        >
-          Read More
-          <ArrowUpRight className="size-4" aria-hidden="true" />
-        </a>
       </div>
 
       {/* Team Grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {members.map((m, i) => {
-          const isActive = i === activeIndex
+        {members?.map((m, i) => {
+          const isActive = i === activeIndex;
 
           return (
             <div
               key={m.name}
               className={cn(
                 "relative h-[420px] overflow-hidden rounded-[28px]",
-                "ring-1 ring-black/10",
-                isActive ? "bg-[#0146a3] text-white transition-all" : "bg-card"
+                "ring-1 ring-black/10 transition-all duration-300",
+                isActive ? "bg-[#0146a3] text-white" : "bg-card"
               )}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
@@ -93,50 +74,53 @@ const Team = () => {
               onBlur={() => setHovered(null)}
             >
               {isActive ? (
-                // Expanded card with details (sirf hover par)
+                // Expanded card (on hover)
                 <div className="flex h-full flex-col p-8">
                   <div>
-                    <h3 className="text-3xl font-semibold leading-tight">{m.name}</h3>
-                    <p className="mt-2 text-lg/7 opacity-90">{m.role}</p>
+                    <h3 className="text-3xl font-semibold leading-tight">{m.heading}</h3>
+                    <p className="mt-2 text-lg/7 opacity-90">{m.title}</p>
                   </div>
 
-                  <p className="mt-6 max-w-sm text-base/7 opacity-95">{m.bio}</p>
+                  <p className="mt-6 max-w-sm text-base/7 opacity-95">{m.description}</p>
 
                   <div className="mt-auto flex items-center gap-3 pt-8">
-                    {m.socials?.facebook && (
+                    {m.socialLinks?.facebook && (
                       <a
-                        href={m.socials.facebook}
+                        href={m.socialLinks.facebook}
                         aria-label="Facebook profile"
-                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-[#fff] ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
+                        target="_blank"
+                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-white ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
                       >
-                        <Facebook className="size-4" aria-hidden="true" />
+                        <Facebook className="size-4" />
                       </a>
                     )}
-                    {m.socials?.linkedin && (
+                    {m.socialLinks?.linkedin && (
                       <a
-                        href={m.socials.linkedin}
+                        href={m.socialLinks.linkedin}
                         aria-label="LinkedIn profile"
-                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-[#fff] ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
+                        target="_blank"
+                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-white ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
                       >
-                        <Linkedin className="size-4" aria-hidden="true" />
+                        <Linkedin className="size-4" />
                       </a>
                     )}
-                    {m.socials?.instagram && (
+                    {m.socialLinks?.twitter && (
                       <a
-                        href={m.socials.instagram}
-                        aria-label="Instagram profile"
-                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-[#fff] ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
+                        href={m.socialLinks.twitter}
+                        aria-label="Twitter profile"
+                        target="_blank"
+                        className="grid size-9 place-items-center rounded-lg bg-brand-foreground/10 text-white ring-1 ring-white/25 transition-colors hover:bg-brand-foreground/15"
                       >
-                        <Instagram className="size-4" aria-hidden="true" />
+                        <Twitter className="size-4" />
                       </a>
                     )}
                   </div>
                 </div>
               ) : (
-                // Default image card (normal state)
+                // Default card (normal)
                 <div className="relative h-full">
                   <Image
-                    src={m.image}
+                    src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${m.images[0]}`}
                     alt={m.alt}
                     fill
                     className="object-cover"
@@ -151,11 +135,11 @@ const Team = () => {
                 </div>
               )}
             </div>
-          )
+          );
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Team
+export default Team;

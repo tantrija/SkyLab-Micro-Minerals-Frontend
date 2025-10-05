@@ -47,6 +47,9 @@ const Services = () => {
 
     fetchServices();
   }, []);
+
+
+  
   return (
     <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
       <div className="grid items-stretch gap-8 md:grid-cols-[1.05fr_1.2fr]">

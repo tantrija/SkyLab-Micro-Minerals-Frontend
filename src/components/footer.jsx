@@ -23,17 +23,7 @@ const Footer = () => {
               solutions.
             </p>
 
-            {/* Newsletter Signup */}
-            <div>
-              <h3 className="text-white font-semibold mb-4">Stay Updated with Skylab</h3>
-              <div className="flex gap-2 max-w-md">
-                <Input
-                  placeholder="Enter your e-mail"
-                  className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-300"
-                />
-                <Button className="bg-[#0146a3] hover:bg-[#0146a3]/90 px-6">Subscribe</Button>
-              </div>
-            </div>
+            
           </div>
 
           {/* Menu */}

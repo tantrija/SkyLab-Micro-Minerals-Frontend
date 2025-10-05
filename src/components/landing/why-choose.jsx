@@ -1,8 +1,26 @@
 "use client"
-import industrialWorker from "../../../public/images/beijing-china-june-modern.webp"
+import axiosClientAuth from "@/Services/api"
 import Image from "next/image"
 
+import * as React from "react"
+
 const WhyChooseSection = () => {
+  const [whyChooseUs, setWhyChooseUs] = React.useState({})
+
+  React.useEffect(() => {
+    const fetchWhyChoose = async () => {
+      try {
+        const res = await axiosClientAuth.get("/why-choose-us");
+        console.log(res.data.data.data);
+        setWhyChooseUs(res?.data?.data?.data[0]);
+      } catch (err) {
+        console.log("Error fetching why choose us:", err);
+      }
+    };
+
+    fetchWhyChoose();
+  }, []);
+
   const features = [
     {
       title: "Precision-Driven Manufacturing",
@@ -54,13 +72,12 @@ const WhyChooseSection = () => {
         <div className="grid items-start gap-10 lg:grid-cols-3">
           {/* LEFT: Eyebrow, heading, body, CTA */}
           <div className="max-w-xl">
-            <p className="text-sm tracking-widest text-muted-foreground">04 / WHY CHOOSE US</p>
+            <p className="text-sm tracking-widest text-muted-foreground">{whyChooseUs?.sectionTitle}</p>
             <h2 id="why-choose" className="mt-4 text-gray-900 text-4xl md:text-6xl font-semibold ">
-              Manufacturing Solutions You Can Trust
+              {whyChooseUs?.heading}
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              From advanced materials to tight–tolerance fabrication, we deliver the quality and consistency your
-              operation depends on.
+              {whyChooseUs?.description}
             </p>
             <a
               href="#services"
@@ -83,11 +100,19 @@ const WhyChooseSection = () => {
 
           {/* MIDDLE: Large rounded image with pills at bottom */}
           <div className="relative overflow-hidden rounded-[2rem] bg-muted">
-            <Image
-              src={industrialWorker}
-              alt="Industrial engineers reviewing equipment"
-              className="h-screen w-full object-cover"
-            />
+            {whyChooseUs?.image ? (
+              <Image
+                src={`${process.env.NEXT_PUBLIC_API_IMAGE}${whyChooseUs.image}`}
+                alt={whyChooseUs.heading || "Why Choose Us Image"}
+                fill
+                className="object-cover"
+                priority
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gray-100 text-gray-400">
+                No Image Available
+              </div>
+            )}
             <div className="pointer-events-none absolute inset-x-0 bottom-4 flex flex-col items-center gap-3 px-4">
               <div className="flex flex-wrap justify-center gap-3">
                 <span className="pointer-events-auto rounded-full bg-[#0146a3] px-4 py-2 text-sm text-primary-foreground shadow">
@@ -110,12 +135,18 @@ const WhyChooseSection = () => {
 
           {/* RIGHT: Feature tiles */}
           <div className="flex flex-col gap-6">
-            {features.map((f, i) => (
-              <div key={i} className="flex items-center gap-4 rounded-2xl bg-muted px-5 py-5">
+            {whyChooseUs?.features?.map((feature, index) => (
+              <div
+                key={feature._id || index}
+                className="flex items-center gap-4 rounded-2xl bg-muted px-5 py-5"
+              >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0146a3]/30 text-[#0146a3]">
-                  {f.icon}
+                  {/* Simple icon */}
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8" fill="currentColor" />
+                  </svg>
                 </div>
-                <p className="text-lg font-medium text-foreground text-pretty">{f.title}</p>
+                <p className="text-lg font-medium text-foreground">{feature.title}</p>
               </div>
             ))}
           </div>

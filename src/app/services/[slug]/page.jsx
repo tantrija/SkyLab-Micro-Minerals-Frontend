@@ -29,6 +29,7 @@ const ServiceDetailPage = ({ className }) => {
 
     fetchServices();
   }, []);
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

@@ -27,7 +27,9 @@ const Navigation = () => {
     const fetchHeader = async () => {
       try {
         const res = await axiosClientAuth.get("/site-setting");
-        setHeader(res?.data?.data?.[0] || {});
+        console.log(res.data.data);
+
+        setHeader(res?.data?.data || {});
       } catch (err) {
         console.error("Error fetching header data:", err);
       } finally {
@@ -76,9 +78,9 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              {header?.logo?.[0] ? (
+              {header?.logo ? (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${header.logo[0]}`}
+                  src={`${process.env.NEXT_PUBLIC_API_IMAGE}${header.logo}`}
                   alt="Logo"
                   width={150}
                   height={40}

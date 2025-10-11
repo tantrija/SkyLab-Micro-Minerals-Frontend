@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import axiosClientAuth from "@/Services/api"
 import * as React from "react"
 import { ArrowRight } from "lucide-react"
-import FAQ from "@/components/landing/faq"
+// import FAQ from "@/components/landing/faq"
 import { useParams } from "next/navigation"
 import Link from "next/link"
 
@@ -18,7 +18,6 @@ const ServiceDetailPage = ({ className }) => {
   console.log(slug);
 
   const [activeTab, setActiveTab] = React.useState("overview")
-
 
   React.useEffect(() => {
     const fetchServices = async () => {
@@ -208,7 +207,7 @@ const ServiceDetailPage = ({ className }) => {
             <p className="text-sm font-medium text-gray-600 tracking-[0.15em] uppercase mb-4 fade-in-up">
               Related Services
             </p>
-            <h2 className="text-headline-serif mb-6 text-balance fade-in-up stagger-1">
+            <h2 className="text-3xl mb-6 text-balance fade-in-up stagger-1">
               Complete Industrial Solutions
             </h2>
             <p className="text-elegant text-muted-foreground max-w-2xl mx-auto fade-in-up stagger-2">
@@ -216,7 +215,7 @@ const ServiceDetailPage = ({ className }) => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-4 gap-5">
             {rservice?.map((service, index) => (
               <div
                 key={service.id}
@@ -233,7 +232,7 @@ const ServiceDetailPage = ({ className }) => {
                     <h3 className="text-xl font-medium mb-4">{service.title}</h3>
                     <div className="flex items-center justify-between">
 
-                      <Link href={`/services/${service._id}`} className="flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                      <Link href={`/services/${service._id}`} className="flex items-center gap-2 text-sm font-medium text-[#0146a3] hover:text-[#0146a3]/80 transition-colors">
                         Learn More
                         <ArrowRight className="w-4 h-4" />
                       </Link>
@@ -247,11 +246,11 @@ const ServiceDetailPage = ({ className }) => {
       </section>
 
       {/* FAQ Section */}
-      <section className="pb-32 px-6">
+      {/* <section className="pb-32 px-6">
         <div className="max-w-7xl mx-auto">
           <FAQ />
         </div>
-      </section>
+      </section> */}
 
     </div>
   )

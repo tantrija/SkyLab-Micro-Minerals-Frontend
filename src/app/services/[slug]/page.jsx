@@ -30,6 +30,7 @@ const ServiceDetailPage = ({ className }) => {
     };
 
     fetchServices();
+    
     const fetchRServices = async () => {
       try {
         const res = await axiosClientAuth.get(`/services`);
@@ -151,23 +152,7 @@ const ServiceDetailPage = ({ className }) => {
 
       {/* Product Details Tabs */}
       <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* <div className="border-b border-border mb-16">
-            <nav className="flex gap-12">
-              {["overview", "specifications", "features"].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`pb-4 text-sm font-medium tracking-wide uppercase transition-colors ${activeTab === tab
-                      ? "text-foreground border-b-2 border-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                    }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </nav>
-          </div> */}
+        <div className="max-w-7xl mx-auto"> 
 
           <div className="grid lg:grid-cols-2 gap-20">
             <div>

@@ -30,7 +30,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section aria-label="Frequently Asked Questions" className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+    <section aria-label="Frequently Asked Questions" className="mx-auto w-full max-w-7xl px-1 md:px-8 py-16 md:py-24">
       <h3 className="text-center text-2xl md:text-3xl font-semibold">Frequently Asked Questions</h3>
       <Accordion type="single" collapsible className="mt-6 grid gap-3">
         {faqs.map((q, i) => (

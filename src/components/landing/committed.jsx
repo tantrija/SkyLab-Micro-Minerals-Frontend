@@ -35,9 +35,9 @@ const Committed = ({ className }) => {
       : "/images/fallback.jpg";
 
   return (
-    <section className="relative mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+    <section className="relative mx-auto w-full max-w-7xl px-4 py-16 md:py-24">
       <p className="text-sm font-medium tracking-widest text-[#0146a3]">
-        01 / ABOUT
+        ABOUT
       </p>
 
       <div className="mt-6 grid gap-10 md:grid-cols-2 md:items-start">
@@ -57,21 +57,7 @@ const Committed = ({ className }) => {
               }}
             />
           </div>
-
-          {/* CTA Button */}
-          <div className="mt-8">
-            <Button
-              className={cn(
-                "inline-flex items-center gap-3 rounded-12 px-6 py-6 text-base",
-                "bg-[#0146a3] text-background hover:bg-[#0146a3]/90"
-              )}
-            >
-              <span>Read More</span>
-              <span className="grid size-8 place-items-center rounded-md bg-white text-[#0146a3]">
-                <ArrowUpRight className="size-5" aria-hidden="true" />
-              </span>
-            </Button>
-          </div>
+ 
         </div>
 
         {/* Right Section (Image) */}
@@ -87,7 +73,7 @@ const Committed = ({ className }) => {
             />
           </div>
 
-          <div className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
+          <div className="pointer-events-none absolute -left-3 top-1/2 -translate-y-1/2 md:-left-16 md:block hidden">
             <CircularBadge />
           </div>
         </div>

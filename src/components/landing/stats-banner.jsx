@@ -58,14 +58,14 @@ export default function StatsBanner() {
   return (
     <section
       aria-label="Scale across industries"
-      className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24"
+      className="mx-auto w-full max-w-7xl px-1 md:px-8 py-5 md:py-24"
     >
       <div className="container mx-auto px-4">
         <div className="relative overflow-hidden rounded-[1rem]">
           <Image
             src={industrialWorker}
             alt="Factory at work"
-            className="h-[280px] md:h-[440px] w-full object-cover"
+            className="h-[380px] md:h-[440px] w-full object-cover"
             priority
           />
           <div className="absolute inset-0 bg-black/30" aria-hidden />

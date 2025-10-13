@@ -41,19 +41,19 @@ const Navigation = () => {
     <header className="bg-white sticky top-0 z-50">
       {/* 🔹 Top Bar */}
       {!loading && (
-        <div className="bg-[#0146a3] text-white py-3 px-4 sm:px-6 lg:px-8 hidden md:block">
-          <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-            <div className="flex items-center gap-6">
-              <Link href={header?.facebook || "#"} target="_blank" className="hover:text-white text-base transition-colors">
+        <div className="bg-[#0146a3] text-white py-3 px-4 sm:px-6 lg:px-8 md:block">
+          <div className="max-w-7xl mx-auto md:flex grid gap-2 justify-between items-center text-sm">
+            <div className="flex items-center md:gap-6 gap-3">
+              <Link href={header?.facebook || "#"} target="_blank" className="hover:text-white md:text-base text-[14px] transition-colors">
                 Facebook
               </Link>
-              <Link href={header?.instagram || "#"} target="_blank" className="hover:text-white text-base transition-colors">
+              <Link href={header?.instagram || "#"} target="_blank" className="hover:text-white md:text-base text-[14px] transition-colors">
                 Instagram
               </Link>
-              <Link href={header?.twitter || "#"} target="_blank" className="hover:text-white text-base transition-colors">
+              <Link href={header?.twitter || "#"} target="_blank" className="hover:text-white md:text-base text-[14px] transition-colors">
                 Twitter
               </Link>
-              <Link href={header?.linkedin || "#"} target="_blank" className="hover:text-white text-base transition-colors">
+              <Link href={header?.linkedin || "#"} target="_blank" className="hover:text-white md:text-base text-[14px] transition-colors">
                 LinkedIn
               </Link>
             </div>
@@ -112,8 +112,9 @@ const Navigation = () => {
             <Button
               aria-label="Toggle Menu"
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="bg-[#0146a3] text-white"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -122,7 +123,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden border-t py-4 transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
+          className={`md:hidden border-t py-2 transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
             }`}
         >
           <div className="space-y-2">
@@ -136,7 +137,7 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4">
+            <div className="pt-4 md:mx-0 mx-2">
               <Button asChild className="w-full bg-[#0146a3] hover:bg-[#0146a3]/90">
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                   <Contact /> Enquiry

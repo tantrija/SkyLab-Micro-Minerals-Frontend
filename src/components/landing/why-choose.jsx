@@ -23,7 +23,7 @@ const WhyChooseSection = () => {
 
  
   return (
-    <section aria-labelledby="why-choose" className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+    <section aria-labelledby="why-choose" className="mx-auto w-full max-w-7xl px-1 md:px-8 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-4">
         <div className="grid items-start gap-10 lg:grid-cols-3">
           {/* LEFT: Eyebrow, heading, body, CTA */}
@@ -36,7 +36,7 @@ const WhyChooseSection = () => {
               {whyChooseUs?.description}
             </p>
             <a
-              href="#services"
+              href="/services"
               className="mt-8 inline-flex items-center gap-3 rounded-xl bg-[#0146a3] px-5 py-3 text-white"
             >
               <span className="text-base font-medium">Our Services</span>

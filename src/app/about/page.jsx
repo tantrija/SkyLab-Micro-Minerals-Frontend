@@ -11,15 +11,11 @@ const AboutPage = () =>  {
   return (
     <div className="min-h-screen"> 
       <Committed /> 
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24">
-        <Services />
+      <section className="container mx-auto md:px-4 space-y-16 md:space-y-24">
+      <WhyChooseSection/> 
         <Team />
         <BigHeadline /> 
-      </section>
-      <WhyChooseSection/> 
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24"> 
-        <FAQ />  
-      </section>
+      </section> 
     </div>
   )
 }

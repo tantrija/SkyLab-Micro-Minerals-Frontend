@@ -41,12 +41,12 @@ const Team = () => {
     );
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 pb-16 pt-6 md:pb-24 md:pt-12">
+    <section className="mx-auto w-full max-w-7xl px-1 md:px-8 pb-16 pt-6 md:pb-24 md:pt-12">
       {/* Header */}
       <div className="mb-8 flex items-start justify-between md:mb-10">
         <div>
           <p className="text-sm font-semibold tracking-widest/relaxed text-foreground/60">
-            03 / OUR TEAM
+           OUR TEAM
           </p>
           <h2 className="text-pretty font-sans text-4xl font-semibold leading-tight md:text-6xl">
             Your Manufacturing <br className="hidden md:block" />

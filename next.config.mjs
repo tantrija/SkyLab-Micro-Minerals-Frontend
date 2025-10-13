@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         domains: [
             'localhost',
-            'api-royalmicron.tantrija.com',
+            'api-skylab.tantrija.com',
         ],
     },
 };

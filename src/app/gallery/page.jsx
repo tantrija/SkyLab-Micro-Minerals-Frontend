@@ -97,7 +97,7 @@ const GalleryPage = () => {
                 priority
               />
             </div>
-            <div className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
+            <div className="pointer-events-none md:block hidden absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
               <CircularBadge />
             </div>
           </div>

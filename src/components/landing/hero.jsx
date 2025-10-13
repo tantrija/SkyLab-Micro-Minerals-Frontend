@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import axiosClientAuth from "@/Services/api";
 import * as React from "react"
+import Link from "next/link";
 
 
 const HeroPage = () => {
@@ -37,15 +38,14 @@ const HeroPage = () => {
     : "/images/fallback.jpg";
 
   return (
-    <section aria-label="Hero" className="container mx-auto px-4 pt-6 md:pt-10">
-      <div className="relative overflow-hidden rounded-[1rem]">
-
+    <section aria-label="Hero" className="container mx-auto px-2 pt-0 md:pt-10">
+      <div className="relative overflow-hidden rounded-[1rem]"> 
         <Image
           src={bgImage}
           alt={heroData?.title || "Hero Background"}
           width={1920}
           height={1080}
-          className="h-[360px] md:h-[520px] w-full object-cover"
+          className="h-[460px] md:h-[520px] w-full object-cover"
           priority
         />
 
@@ -87,12 +87,13 @@ const HeroPage = () => {
               <p className="text-xs text-muted-foreground">New Customer?</p>
               <p className="text-sm font-medium">Talk with an Expert</p>
             </div>
-            <Button
+            <Link
               size="sm"
-              className="bg-[#0146a3] text-white hover:bg-[#0146a3]/90"
+              href="/contact"
+              className="bg-[#0146a3] text-white hover:bg-[#0146a3]/90 p-3 rounded-lg text-sm ml-auto"
             >
               Contact
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

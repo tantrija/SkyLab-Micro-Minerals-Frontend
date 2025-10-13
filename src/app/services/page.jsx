@@ -13,7 +13,7 @@ import WhyChooseSection from "@/components/landing/why-choose"
 const ServicesPage = () =>  {
   return (
     <div className="min-h-screen"> 
-      <section className="relative mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+      <section className="relative mx-auto w-full max-w-7xl md:px-6 px-3 py-5 md:py-24">
       {/* Eyebrow */}
       <p className="text-sm font-medium tracking-widest text-[#0146a3]">{"Home / Services"}</p>
 
@@ -73,18 +73,18 @@ const ServicesPage = () =>  {
           </div>
 
           
-          <div className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
+          <div className="pointer-events-none md:block hidden absolute -left-0 top-1/2 -translate-y-1/2 md:-left-16">
             <CircularBadge />
           </div>
         </div>
       </div>
     </section>
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24">
+      <section className="container mx-auto md:px-4 space-y-16 md:space-y-24">
         <Services /> 
         <BigHeadline /> 
       </section>
       {/* <WhyChooseSection/>  */}
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24"> 
+      <section className="container mx-auto md:px-4 space-y-16 md:space-y-24"> 
         <WhyChooseSection />  
       </section>
     </div>

@@ -111,7 +111,7 @@ const ContactPage = () => {
                 priority
               />
             </div>
-            <div className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
+            <div className="pointer-events-none md:block hidden absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
               <CircularBadge />
             </div>
           </div>
@@ -119,7 +119,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full max-w-6xl mx-auto px-4 py-16 md:py-24">
+      <section className="w-full max-w-6xl mx-auto px-4 py-10 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left blue info panel */}
           <aside
@@ -129,7 +129,7 @@ const ContactPage = () => {
             <div className="space-y-8">
               <div>
                 <p className="text-blue-200 text-sm md:text-base">Address</p>
-                <p className="mt-2 text-2xl md:text-4xl font-semibold leading-tight">
+                <p className="mt-2 text-xl md:text-2xl font-bold leading-tight">
                   {siteSetting?.address}
                 </p>
               </div>

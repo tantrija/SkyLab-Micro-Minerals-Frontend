@@ -105,7 +105,7 @@ const ServiceDetailPage = ({ className }) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+      <section className="relative mx-auto w-full max-w-7xl md:px-6 px-5 py-5 md:py-24">
         <p className="text-sm font-medium tracking-widest text-[#0146a3]">
           Home / Services / Services Details
         </p>
@@ -142,7 +142,7 @@ const ServiceDetailPage = ({ className }) => {
               />
             </div>
 
-            <div className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
+            <div className="pointer-events-none md:block hidden absolute -left-10 top-1/2 -translate-y-1/2 md:-left-16">
               <CircularBadge />
             </div>
           </div>
@@ -151,7 +151,7 @@ const ServiceDetailPage = ({ className }) => {
 
 
       {/* Product Details Tabs */}
-      <section className="py-32 px-6">
+      <section className="md:py-32 py-10 px-6">
         <div className="max-w-7xl mx-auto"> 
 
           <div className="grid lg:grid-cols-2 gap-20">
@@ -186,13 +186,13 @@ const ServiceDetailPage = ({ className }) => {
       </section>
 
       {/* Related Services */}
-      <section className="py-32 px-6 bg-secondary/30">
+      <section className="md:py-32 py-10 px-6 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <p className="text-sm font-medium text-gray-600 tracking-[0.15em] uppercase mb-4 fade-in-up">
               Related Services
             </p>
-            <h2 className="text-3xl mb-6 text-balance fade-in-up stagger-1">
+            <h2 className="text-3xl mb-6 font-bold fade-in-up stagger-1">
               Complete Industrial Solutions
             </h2>
             <p className="text-elegant text-muted-foreground max-w-2xl mx-auto fade-in-up stagger-2">

@@ -15,14 +15,14 @@ const HomePage = () => {
       {/* Hero Section */}
       <HeroPage />
       <Committed />
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24">
+      <section className="container mx-auto px-1 md:px-8 space-y-16 md:space-y-24">
         <Services />
         <Team />
         <BigHeadline />
       </section>
       <WhyChooseSection />
       <StatsBanner />
-      <section className="container mx-auto px-4 space-y-16 md:space-y-24">
+      <section className="container mx-auto px-1 md:px-8 space-y-16 md:space-y-24">
 
         <FAQ />
       </section>

@@ -51,8 +51,8 @@ const Services = () => {
 
   
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
-      <div className="grid items-stretch gap-8 md:grid-cols-[1.05fr_1.2fr]">
+    <section className="mx-auto w-full max-w-7xl  px-1 md:px-8 py-5 md:py-24">
+      <div className="grid items-stretch md:gap-8 gap-3 md:grid-cols-[1.05fr_1.2fr] ">
         {/* Left Large Photo */}
         <div className="relative">
           <div className="overflow-hidden rounded-[28px]">
@@ -61,7 +61,7 @@ const Services = () => {
               alt="Industrial team discussing work near machinery"
               width={640}
               height={560}
-              className="h-screen w-full object-cover"
+              className="md:h-screen w-full object-cover"
               priority
             />
           </div>
@@ -75,7 +75,7 @@ const Services = () => {
           )}
         >
           {/* Eyebrow and Title */}
-          <p className="text-sm font-semibold tracking-widest/relaxed opacity-85">{"02 / SERVICES"}</p>
+          <p className="text-sm font-semibold tracking-widest/relaxed opacity-85">{"SERVICES"}</p>
           <h3 className="mt-3 text-balance font-sans text-3xl font-bold leading-tight md:text-5xl">
             {"Tailored Industrial Solutions"}
             <br className="hidden md:block" />

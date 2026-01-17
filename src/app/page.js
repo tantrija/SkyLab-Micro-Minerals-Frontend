@@ -41,36 +41,63 @@ const HomePage = () => {
       {/* Hero Section */}
       <HeroPage />
 
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50/30">
+      <section
+        id="premium-products"
+        aria-labelledby="premium-products-heading"
+        aria-describedby="premium-products-description"
+        className="py-20 bg-gradient-to-b from-white to-gray-50/30"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-[#0057ff] px-5 py-2.5 rounded-full text-sm font-semibold mb-6 fade-in-up shadow-sm border border-blue-100">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                  fillRule="evenodd"
+                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                  clipRule="evenodd"
+                ></path>
               </svg>
-              Our Premium Products
+              Premium Calcium Carbonate Products
             </div>
-            <h2 className="text-headline fade-in-up stagger-1 mb-6 text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-              Engineered for
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Industrial Excellence</span>
+
+            <h2
+              id="premium-products-heading"
+              className="text-headline fade-in-up stagger-1 mb-6 text-4xl md:text-5xl font-bold tracking-tight text-gray-900"
+            >
+              Engineered Calcium Carbonate (CaCO₃) for
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                {" "}
+                Industrial Excellence
+              </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up stagger-2 leading-relaxed">
-              Discover our comprehensive range of premium industrial solutions designed for superior performance and reliability
+
+            <p
+              id="premium-products-description"
+              className="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up stagger-2 leading-relaxed"
+            >
+              Explore our range of premium Calcium Carbonate (CaCO₃) powders—uncoated and coated—developed for consistent
+              quality, dependable performance, and demanding industrial applications.
             </p>
           </div>
 
-
           {/* Product Grid - Uncoated Calcium Powder */}
-          <div className="mb-24">
+          <div className="mb-24" aria-label="Uncoated calcium carbonate powder products">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900">Uncoated Calcium Powder</h3>
-                <p className="text-gray-500 mt-1">High-purity solutions for industrial applications</p>
+                <h3 className="text-2xl font-bold text-gray-900">Uncoated Calcium Carbonate Powder (CaCO₃)</h3>
+                <p className="text-gray-500 mt-1">
+                  High-purity mineral filler solutions for paper, paints & coatings, ceramics, rubber, and more.
+                </p>
               </div>
+
               <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd"></path>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    fillRule="evenodd"
+                    d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                    clipRule="evenodd"
+                  ></path>
                 </svg>
                 <span>4 products</span>
               </div>
@@ -82,8 +109,9 @@ const HomePage = () => {
                 <div className="relative overflow-hidden h-52 bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src={CP600Img}
-                    alt="SM - 600"
+                    alt="Uncoated Calcium Carbonate Powder (CaCO₃) - SM - 2020 | Skylab Microminerals"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">
@@ -91,15 +119,17 @@ const HomePage = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">SM - 2020</h3>
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">SM - 2020</h4>
 
                   <div className="flex items-center justify-between mt-6">
                     <button
+                      type="button"
                       onClick={() => setShowGetBestQuote(true)}
+                      aria-label="Get quote for Uncoated Calcium Carbonate Powder (CaCO₃) SM - 2020"
                       className="w-full text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md inline-flex items-center justify-between gap-2"
                     >
                       Get Quote
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
                     </button>
@@ -112,22 +142,24 @@ const HomePage = () => {
                 <div className="relative overflow-hidden h-52 bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src={CP1100Img}
-                    alt="SM - 1100"
+                    alt="Uncoated Calcium Carbonate Powder (CaCO₃) - SM - 3030 | Skylab Microminerals"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">SM - 3030</h3>
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">SM - 3030</h4>
 
                   <div className="flex items-center justify-between mt-6">
-
                     <button
+                      type="button"
                       onClick={() => setShowGetBestQuote(true)}
+                      aria-label="Get quote for Uncoated Calcium Carbonate Powder (CaCO₃) SM - 3030"
                       className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md inline-flex items-center justify-between gap-2"
                     >
                       Get Quote
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
                     </button>
@@ -140,22 +172,24 @@ const HomePage = () => {
                 <div className="relative overflow-hidden h-52 bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src={CP2100Img}
-                    alt="SM - 2100"
+                    alt="Uncoated Calcium Carbonate Powder (CaCO₃) - SM - 4040 | Skylab Microminerals"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">SM - 4040</h3>
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">SM - 4040</h4>
 
                   <div className="flex items-center justify-between mt-6">
-
                     <button
+                      type="button"
                       onClick={() => setShowGetBestQuote(true)}
+                      aria-label="Get quote for Uncoated Calcium Carbonate Powder (CaCO₃) SM - 4040"
                       className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md inline-flex items-center justify-between gap-2"
                     >
                       Get Quote
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
                     </button>
@@ -168,21 +202,24 @@ const HomePage = () => {
                 <div className="relative overflow-hidden h-52 bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src={CP3100Img}
-                    alt="Calcium Powder 3100"
+                    alt="Uncoated Calcium Carbonate Powder (CaCO₃) - SM - 5050 | Skylab Microminerals"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">SM - 5050</h3>
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">SM - 5050</h4>
 
                   <div className="flex items-center justify-between mt-6">
                     <button
+                      type="button"
                       onClick={() => setShowGetBestQuote(true)}
+                      aria-label="Get quote for Uncoated Calcium Carbonate Powder (CaCO₃) SM - 5050"
                       className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md inline-flex items-center justify-between gap-2"
                     >
                       Get Quote
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
                     </button>
@@ -193,19 +230,29 @@ const HomePage = () => {
           </div>
 
           {/* Coated Calcium Powder Section */}
-          <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/30 rounded-3xl p-4 md:p-5 mb-16">
+          <div
+            className="bg-gradient-to-br from-blue-50/50 to-indigo-50/30 rounded-3xl p-4 md:p-5 mb-16"
+            aria-label="Coated calcium carbonate powder products"
+          >
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path
+                        fillRule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clipRule="evenodd"
+                      ></path>
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Coated Calcium Powder</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Coated Calcium Carbonate Powder (CaCO₃)</h3>
                 </div>
-                <p className="text-gray-600 ml-13">Surface-treated for enhanced performance and durability</p>
+                <p className="text-gray-600 ml-13">
+                  Surface-treated grades engineered for improved processing and long-term performance in industrial formulations.
+                </p>
               </div>
+
               <div className="hidden sm:block">
                 <span className="text-sm font-medium text-blue-600 bg-white/80 px-4 py-2 rounded-full border border-blue-100">
                   Advanced Coating Technology
@@ -218,23 +265,29 @@ const HomePage = () => {
                 { img: ActivatedCalciumImage, title: "SM - T2020", color: "blue" },
                 { img: CCP2100Img, title: "SM - T3030", color: "green" },
                 { img: CCP3100Img, title: "SM - T4040", color: "purple" },
-                { img: CCP600Img, title: "SM - T5050", color: "amber" }
+                { img: CCP600Img, title: "SM - T5050", color: "amber" },
               ].map((product, index) => (
-                <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-white">
+                <div
+                  key={index}
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-white"
+                >
                   <div className="relative overflow-hidden h-56 bg-gradient-to-br from-gray-50 to-blue-50/50">
                     <Image
                       src={product.img}
-                      alt={product.title}
+                      alt={`Coated Calcium Carbonate Powder (CaCO₃) - ${product.title} | Skylab Microminerals`}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{product.title}</h3>
-                    <div className="mt-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{product.title}</h4>
 
+                    <div className="mt-6">
                       <button
+                        type="button"
                         onClick={() => setShowGetBestQuote(true)}
+                        aria-label={`Request quote for Coated Calcium Carbonate Powder (CaCO₃) ${product.title}`}
                         className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md text-sm"
                       >
                         Request Quote
@@ -246,12 +299,14 @@ const HomePage = () => {
             </div>
 
             <div className="text-center mt-12 pt-8 border-t border-blue-100/50">
-              <p className="text-gray-600 mb-6">Need a custom formulation or bulk pricing?</p>
+              <p className="text-gray-600 mb-6">Need a custom formulation, technical consultation, or bulk pricing?</p>
               <button
+                type="button"
                 onClick={() => setShowGetBestQuote(true)}
+                aria-label="Contact Skylab Microminerals sales team for custom formulation or bulk pricing"
                 className="bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white font-medium py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-3"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                 </svg>
                 Contact Our Sales Team
@@ -260,6 +315,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <section className="bg-gradient-to-b from-gray-50 to-white py-24">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Header */}

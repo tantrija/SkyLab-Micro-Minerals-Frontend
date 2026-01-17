@@ -190,9 +190,6 @@ const Footer = () => {
               <p className="text-gray-400 text-sm">
                 {siteSetting?.footerCopyright || "Copyright © 2026 Skylab Microminerals. All Rights Reserved."}
               </p>
-              <p className="text-gray-500 text-xs mt-1">
-                Designed & Developed with ❤️
-              </p>
             </div>
             
             {/* Optional: Policy Links */}

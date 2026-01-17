@@ -6,13 +6,9 @@ import bgDefaultRow1 from "../../../public/images/row-01.png";
 import industrialCityscape from "../../../public/images/banner-image.jpg";
 import Image from "next/image";
 import Footer from "@/components/footer";
-import Header from "@/components/header";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import uncoatedBgDefaultRow1 from "../../../public/images/productsimages/calcium-powder-2100.webp";
-import coatedBgDefaultRow1 from "../../../public/images/productsimages/coated-calcium-carbonate-powder-0001.jpg";
-
 import UnCoatedCalcium from "../../../public/images/activatedcalciumImage.png";
 import CoatedCalcium from "../../../public/images/productsimages/coated-calcium-carbonate-011.avif";
 
@@ -72,7 +68,6 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       {/* Sophisticated Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div

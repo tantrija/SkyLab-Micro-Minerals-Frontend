@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react"
 import { ArrowRight, Plus, Minus } from "lucide-react"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import axios from "axios"
 import Link from "next/link"
@@ -140,8 +139,6 @@ const ProductDetailsPage = (props) => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center">
         <div
